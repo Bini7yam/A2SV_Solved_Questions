@@ -29,6 +29,7 @@ class Solution:
             t,mop = tr(s)
             if t:res.append(t)
             continue
+        res = [s for s in res if s]
         return res
             
 
