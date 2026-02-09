@@ -1,11 +1,11 @@
 class Solution:
     def integerBreak(self, n: int) -> int:
-        if n is 2: return 1
-        if n is 3: return 2
-        if n is 4: return 4
-        res = 1
-        while n > 4:
-            res *= 3
-            n -= 3
-        return res * n
+        if n < 4: return n-1
+        dp = [0] * (n+5)
+        dp[2]=2
+        dp[3]=3
+        for i in range(4,n+1):
+            dp[i] = max(x * dp[i-x] for x in range(1,i-1))
+        return dp[n]
+    
         
