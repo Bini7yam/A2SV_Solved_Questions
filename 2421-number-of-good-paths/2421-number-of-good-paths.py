@@ -8,7 +8,7 @@ class Solution:
             x,y = d
             adj[x].append(y)
             adj[y].append(x)
-            res += v[x] == v[y]
+            
         p = [-1]*n
         on = [False] * n
         ind = [[] for i in range(N)]
@@ -19,26 +19,25 @@ class Solution:
             y = find(p[x])
             p[x] = y
             return y
+        cnt = {}
         def join(x,y):
+            nonlocal cnt
+            nonlocal res
             px,py=find(x),find(y)
-            if px==py:return
+            if px == py: return
+            res += cnt[px] * cnt[py]
             p[px] = py
+            cnt[py] += cnt[px]
         for lst in ind:
-            if not lst:continue
-            cnt = {}
+            cnt.clear()
             for x in lst:
+                p[x] = x
+                on[x] = cnt[x] = 1 
                 for y in adj[x]:
                     if not on[y]:continue
                     rep = find(y)
-                    if rep not in cnt:cnt[rep]=0
-                    res += cnt[rep]
-                    cnt[rep] += 1
-            for x in lst:
-                p[x] = x
-                on[x] = 1
-                for y in adj[x]:
-                    if not on[y]:continue
-                    join(x,y)
+                    if rep not in cnt:cnt[rep] = 0
+                    join(x,rep)
         return res
 
         
