@@ -6,13 +6,9 @@ class Solution:
             res.append(k)
             for i in range(k//2):
                 j = k - 1 - i
-                arr[i],arr[j]=arr[j],arr[i]
-        flip(arr.index(1)+1)
-        for i in range(2,n):
-            flip(n)
-            x = arr.index(i)
-            flip(x+1)
-            flip(n-i+1)
-            flip(n)
+                arr[i], arr[j] = arr[j], arr[i]
+        for i in range(n,1,-1):
+            j = arr.index(i)
+            flip(j+1)
+            flip(i)
         return res
-        
