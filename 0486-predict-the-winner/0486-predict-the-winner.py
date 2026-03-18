@@ -1,6 +1,7 @@
 class Solution:
     def predictTheWinner(self, nums: List[int]) -> bool:
 
+        @cache
         def score(l,r):
             if l == r: return nums[l]
             return sum(nums[l:r+1]) - min( score(l+1, r), score(l,r-1))
