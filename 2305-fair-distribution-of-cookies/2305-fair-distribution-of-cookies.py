@@ -1,21 +1,23 @@
 class Solution:
     def distributeCookies(self, cookies: List[int], k: int) -> int:
-        inf=float("inf")
-        n=len(cookies)
-        avg=sum(cookies)/k
-        track=[0]*k
-        def bct(i=0,ma=0):
-            if i==n:return ma
-            mi=inf
+        n = len(cookies)
+        average = sum(cookies)/k
+        dist = [0] * k
+        mx = 10000000
+        def dfs(i):
+            if i==n: return max(dist)
+            res = mx
             for j in range(k):
-                if track[j]>avg or track[j]+cookies[j]>mi:continue
-                track[j]+=cookies[i]
-                nma=max(ma,track[j])
-                mi=min(mi,bct(i+1,nma))
-                track[j]-=cookies[i]
-            return mi
-        return bct()
+                if dist[j] > average or dist[j] + cookies[i] > res: continue
+                dist[j] += cookies[i]
+                res = min(res, dfs(i+1))
+                dist[j] -= cookies[i]
+            return res
+
+        return dfs(0)
 
 
 
-        
+
+
+            
