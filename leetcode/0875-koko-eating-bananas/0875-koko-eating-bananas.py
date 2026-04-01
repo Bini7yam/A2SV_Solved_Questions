@@ -3,8 +3,8 @@ class Solution:
         left, right = 1, max(piles)
         def check(n):
             c = 0
-            for pile in piles: c += (-pile)//n
-            return -c <= h
+            for pile in piles: c += ceil(pile/n)
+            return c <= h
         
         while left < right:
             mid = (left + right) // 2
