@@ -1,4 +1,11 @@
 class Solution:
     def myPow(self, x: float, n: int) -> float:
-        return x**n
+        neg = n < 0
+        n = abs(n)
+        res = 1
+        while n:
+            if n&1: res = res * x
+            x *= x
+            n>>=1
+        return 1/res if neg else res
         
