@@ -23,9 +23,11 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 ## String
 |  |
 | ------- |
+| [0087-scramble-string](https://github.com/Bini7yam/A2SV_Solved_Questions/tree/master/0087-scramble-string) |
 | [0115-distinct-subsequences](https://github.com/Bini7yam/A2SV_Solved_Questions/tree/master/0115-distinct-subsequences) |
 ## Dynamic Programming
 |  |
 | ------- |
+| [0087-scramble-string](https://github.com/Bini7yam/A2SV_Solved_Questions/tree/master/0087-scramble-string) |
 | [0115-distinct-subsequences](https://github.com/Bini7yam/A2SV_Solved_Questions/tree/master/0115-distinct-subsequences) |
 <!---LeetCode Topics End-->
