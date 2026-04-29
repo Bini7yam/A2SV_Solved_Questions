@@ -13,15 +13,14 @@ public:
                 for(int i2=0;i2+d<n;++i2){
 
                     int j2 = i2 + d;
-
+                    bool & b = dp[i1][j1][i2][j2];
                     for(int l=0;l<d;++l){
 
                         int d1 = i1 + l;
                         int d2 = i2 + l;
-                        bool b = dp[i1][d1][i2][d2] && dp[d1+1][j1][d2+1][j2];
+                        b |= dp[i1][d1][i2][d2] && dp[d1+1][j1][d2+1][j2];
                         d2 = j2 - l - 1;
                         b |= dp[i1][d1][d2+1][j2] && dp[d1+1][j1][i2][d2];
-                        dp[i1][j1][i2][j2]|=b;
 
                     }
 
